@@ -1,0 +1,21 @@
+server:
+  port: 8080
+spring:
+  redis:
+    cluster:
+      nodes: 192.168.159.129:7001,192.168.159.129:7002,192.168.159.129:7003,192.168.159.129:7004,192.168.159.129:7005,192.168.159.129:7006
+    host: localhost
+    port: 6379
+    lettuce:
+      pool:
+        #连接池的最大数据库连接数。设为0表示无限制,如果是jedis 2.4以后用redis.maxTotal
+        maxActive: 600
+        #最大空闲数
+        maxIdle: 200
+        minIdle: 0
+        #控制一个pool可分配多少个jedis实例,用来替换上面的redis.maxActive,如果是jedis 2.4以后用该属性
+        maxTotal: 1000
+        #最大建立连接等待时间。如果超过此时间将接到异常。设为-1表示无限制。
+        maxWaitMillis: 5000
+    password:
+
