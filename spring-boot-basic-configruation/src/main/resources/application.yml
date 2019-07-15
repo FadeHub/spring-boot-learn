@@ -1,0 +1,15 @@
+server:
+  port: 8080
+  error:
+    path: /error
+  servlet:
+    session:
+      #m代表分
+      timeout: 30m
+my:
+  name: 名字好起吗
+  address: China
+  favorites:
+    - 篮球
+    - Coding
+    - 爬山
