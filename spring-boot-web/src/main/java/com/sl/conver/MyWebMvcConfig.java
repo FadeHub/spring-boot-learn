@@ -44,7 +44,7 @@ public class MyWebMvcConfig implements WebMvcConfigurer {
     //自定义静态资源位置
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/static/**")
-                .addResourceLocations("classpath:/static/");
+        registry.addResourceHandler("/")
+                .addResourceLocations("classpath:/");
     }
 }
