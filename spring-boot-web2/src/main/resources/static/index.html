@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>上传文件</title>
+    <script src="jquery-3.4.1.min.js"></script>
+</head>
+<body>
+    <div id = "contentDiv"></div>
+    <div id = "deleteResult"></div>
+    <input type="button" value="提交数据" onclick="getData()"/></br>
+    <input type="button" value="删除数据" onclick="deleteData()"/></br>
+</body>
+    <script>
+        function deleteData() {
+            $.ajax({
+                url:'http://localhost:8080/cros/99',
+                type:'delete',
+                success:function (msg) {
+                    $("#deleteResult").html(msg)
+                }
+            })
+        }
+
+        function getData() {
+            $.ajax({
+                url:'http://localhost:8080/cros/book',
+                type:'post',
+                data:{name:'平凡的世界'},
+                success:function (msg) {
+                    $("#contentDiv").html(msg)
+                }
+            })
+        }
+    </script>
+</html>
