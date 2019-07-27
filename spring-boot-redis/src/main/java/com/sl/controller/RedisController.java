@@ -24,7 +24,7 @@ public class RedisController {
     @RequestMapping("/user/save")
     public void saveUser() {
         User user = new User();
-        user.setName("张三");
+        user.setName("李四");
         user.setAge("18");
         user.setJob("程序员");
         redisTemplate.opsForValue().set("userZhang", JSONObject.toJSONString(user));
