@@ -14,3 +14,7 @@ spring:
         max-idle : 8
         max-wait-millis: -1
         min-idle: 0
+  cache:
+    cache-names: c1,c2
+    redis:
+      time-to-live: 1800s
