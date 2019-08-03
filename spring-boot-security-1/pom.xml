@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.sl</groupId>
-    <artifactId>spring-boot-security</artifactId>
+    <artifactId>spring-boot-security-1</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
@@ -20,8 +20,6 @@
     </parent>
 
     <dependencies>
-
-
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
@@ -47,28 +45,9 @@
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
         </dependency>
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>druid-spring-boot-starter</artifactId>
-            <version>1.1.10</version>
-        </dependency>
     </dependencies>
 
     <build>
-        <resources>
-            <!--整合mybatis一定要加上-->
-            <resource>
-                <directory>src/main/java</directory>
-                <includes>
-                    <include>**/*.xml</include>
-                </includes>
-                <filtering>false</filtering>
-            </resource>
-            <resource>
-                <directory>src/main/resources</directory>
-                <filtering>false</filtering>
-            </resource>
-        </resources>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
@@ -76,5 +55,4 @@
             </plugin>
         </plugins>
     </build>
-
 </project>
