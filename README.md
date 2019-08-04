@@ -30,3 +30,7 @@
 15、spring-boot-restful返回restful格式
 
 16、spring-boot-security security基于内存认证
+
+17、spring-boot-security security-1基于数据库认证
+
+18、spring-boot-security security-2自动登录
