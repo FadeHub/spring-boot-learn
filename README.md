@@ -34,3 +34,6 @@
 17、spring-boot-security security-1基于数据库认证
 
 18、spring-boot-security security-2自动登录
+
+19、spring-boot-security security-3异常处理
+
