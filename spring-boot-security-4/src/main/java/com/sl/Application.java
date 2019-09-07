@@ -7,7 +7,7 @@ import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
 
 /**
- * 自动登录
+ * 自定义表单登录
  */
 @SpringBootApplication
 public class Application {
