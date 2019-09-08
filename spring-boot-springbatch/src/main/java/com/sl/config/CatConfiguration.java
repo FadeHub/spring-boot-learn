@@ -59,7 +59,7 @@ public class CatConfiguration {
     @Bean
     @StepScope
     public CommonMybatisItemReader<Cat> catCommonMybatisItemReader() {
-        return new CommonMybatisItemReader(sqlSessionFactory);
+        return new CommonMybatisItemReader(sqlSessionFactory,Cat.class.getSimpleName());
     }
 
     @Bean

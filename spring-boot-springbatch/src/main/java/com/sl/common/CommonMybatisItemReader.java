@@ -12,9 +12,9 @@ import org.mybatis.spring.batch.MyBatisPagingItemReader;
  */
 public class CommonMybatisItemReader<T> extends MyBatisPagingItemReader<T> {
 
-    public CommonMybatisItemReader(SqlSessionFactory sqlSessionFactory) {
+    public CommonMybatisItemReader(SqlSessionFactory sqlSessionFactory,String name) {
         setSqlSessionFactory(sqlSessionFactory);
-        setQueryId("com.sl.entity.Cat.selectList");
+        setQueryId("com.sl.entity."+name+"selectList");
         setPageSize(100);
     }
 }
