@@ -1,9 +1,10 @@
 package com.sl.config;
 
 import com.sl.common.CommonFileItemWriter;
+import com.sl.common.CommonMultiResourceItemReader;
+import com.sl.common.CommonMultiResourceItemWriter;
 import com.sl.entity.People;
 import com.sl.entity.Student;
-import com.sl.common.CommonFileItemReader;
 import com.sl.processor.StudentProcessor;
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.Step;
@@ -17,15 +18,14 @@ import org.springframework.context.annotation.Configuration;
 
 /**
  * @author shuliangzhao
- * @Title: UserConfiguration
+ * @Title: StudentMultiConfiguration
  * @ProjectName spring-boot-learn
  * @Description: TODO
- * @date 2019/9/7 17:06
+ * @date 2019/9/8 12:41
  */
 @Configuration
 @EnableBatchProcessing
-public class StudentConfiguration {
-
+public class StudentMultiConfiguration {
     @Autowired
     private JobBuilderFactory jobBuilderFactory;
 
@@ -36,31 +36,31 @@ public class StudentConfiguration {
     private StudentProcessor studentProcessor;
 
     @Bean
-    public Job studentJob() {
-         return jobBuilderFactory.get("studentJob")
-                 .start(studentStep())
-                 .build();
+    public Job studentMultiJob() {
+        return jobBuilderFactory.get("studentMultiJob")
+                .start(studentMulitStep())
+                .build();
     }
 
     @Bean
-    public Step studentStep() {
-        return stepBuilderFactory.get("studentStep")
+    public Step studentMulitStep() {
+        return stepBuilderFactory.get("studentMulitStep")
                 .<People, Student>chunk(10)
-                .reader(peopleCommonFileItemReader())
+                .reader(peopleCommonMultiResourceItemReader())
                 .processor(studentProcessor)
-                .writer(studentCommonFileItemWriter())
+                .writer(studentCommonMultiFileItemWriter())
                 .build();
     }
 
     @Bean
     @StepScope
-    public CommonFileItemReader<People> peopleCommonFileItemReader() {
-        return new CommonFileItemReader<>(People.class);
+    public CommonMultiResourceItemReader<People> peopleCommonMultiResourceItemReader(){
+        return new CommonMultiResourceItemReader<>(People.class);
     }
 
     @Bean
     @StepScope
-    public CommonFileItemWriter<Student> studentCommonFileItemWriter() {
-        return new CommonFileItemWriter<>(Student.class);
+    public CommonMultiResourceItemWriter<Student> studentCommonMultiFileItemWriter() {
+        return new CommonMultiResourceItemWriter<>(Student.class);
     }
 }

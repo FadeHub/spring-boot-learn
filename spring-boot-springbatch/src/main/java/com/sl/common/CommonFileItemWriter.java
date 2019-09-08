@@ -6,6 +6,7 @@ import org.springframework.batch.item.file.transform.BeanWrapperFieldExtractor;
 import org.springframework.batch.item.file.transform.DelimitedLineAggregator;
 import org.springframework.core.io.FileSystemResource;
 
+import javax.annotation.PostConstruct;
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 import java.util.ArrayList;
@@ -23,7 +24,7 @@ public class CommonFileItemWriter<T> extends FlatFileItemWriter<T> {
 
     private FileSystemResource fileSystemResource;
 
-    public CommonFileItemWriter(Class clz) {
+    public void init(Class clz) {
         BeanWrapperFieldExtractor beanWrapperFieldExtractor = new BeanWrapperFieldExtractor();
         Field[] fields = clz.getDeclaredFields();
         List<String> list = new ArrayList<>();
@@ -38,10 +39,15 @@ public class CommonFileItemWriter<T> extends FlatFileItemWriter<T> {
         DelimitedLineAggregator lineAggregator = new DelimitedLineAggregator();
         lineAggregator.setDelimiter(",");
         lineAggregator.setFieldExtractor(beanWrapperFieldExtractor);
+        setLineAggregator(lineAggregator);
         setName(clz.getSimpleName());
         setEncoding(CommonConstants.ENCODING_READ);
+    }
+
+    public CommonFileItemWriter(Class clz) {
+        init(clz);
         fileSystemResource = new FileSystemResource("D:\\aplus\\shuqian\\source\\"+ clz.getSimpleName() + ".csv");
         setResource(fileSystemResource);
-        setLineAggregator(lineAggregator);
+
     }
 }
