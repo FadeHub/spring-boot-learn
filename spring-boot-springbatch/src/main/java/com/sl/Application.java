@@ -23,6 +23,6 @@ public class Application {
     private static void run(ApplicationContext ctx) throws Exception{
         JobLauncher jobLauncher = ctx.getBean(JobLauncher.class);
         JobParameters jobParameters = new JobParametersBuilder().addDate("test", new Date()).toJobParameters();
-        JobExecution studentJob = jobLauncher.run(ctx.getBean("studentMultiJob", Job.class), jobParameters);
+        JobExecution studentJob = jobLauncher.run(ctx.getBean("catJob", Job.class), jobParameters);
     }
 }

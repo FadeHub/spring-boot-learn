@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sl.entity.Cat">
+
+    <!-- 可根据自己的需求，是否要使用 -->
+    <resultMap type="cat" id="catMap">
+
+        <id column="id" property="id" jdbcType="INTEGER" />
+        <result column="catname" property="catname" jdbcType="VARCHAR" />
+        <result column="catage" property="catage" jdbcType="VARCHAR" />
+        <result column="cataddress" property="cataddress" jdbcType="VARCHAR" />
+
+    </resultMap>
+
+
+
+    <select id="selectList"  resultMap="catMap">
+        select id,catname,catage,cataddress from cat
+    </select>
+
+
+
+</mapper>
