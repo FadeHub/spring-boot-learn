@@ -13,6 +13,10 @@
     </resultMap>
 
 
+    <insert id="insertCat" parameterType="com.sl.entity.Cat">
+           insert into cat(id, catname, catage, cataddress)
+               values(#{id},#{catname}, #{catage}, #{cataddress})
+   </insert>
 
     <select id="selectList"  resultMap="catMap">
         select id,catname,catage,cataddress from cat
