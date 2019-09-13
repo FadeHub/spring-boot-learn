@@ -18,9 +18,12 @@ import org.springframework.batch.core.configuration.annotation.StepScope;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.task.SimpleAsyncTaskExecutor;
+import org.springframework.core.task.TaskExecutor;
 import org.springframework.dao.DuplicateKeyException;
 
 /**
+ * 配置多线程
  * @author shuliangzhao
  * @Title: UserConfiguration
  * @ProjectName spring-boot-learn
@@ -29,7 +32,7 @@ import org.springframework.dao.DuplicateKeyException;
  */
 @Configuration
 @EnableBatchProcessing
-public class CatConfiguration {
+public class CaThreadConfiguration {
 
     @Autowired
     private JobBuilderFactory jobBuilderFactory;
@@ -53,26 +56,30 @@ public class CatConfiguration {
     private CatChunkListener catChunkListener;
 
     @Bean
-    public Job catJob() {
-         return jobBuilderFactory.get("catJob")
-                 .start(catStep())
+    public Job catThreadJob() {
+         return jobBuilderFactory.get("catThreadJob")
+                 .start(catThreadStep())
                  .listener(catJobListener)
                  .build();
     }
 
     @Bean
-    public Step catStep() {
-        return stepBuilderFactory.get("catStep")
+    public Step catThreadStep() {
+        return stepBuilderFactory.get("catThreadStep")
                 // .listener(catStepListener)
                 .listener(catChunkListener)
                 .<Cat, CafeCat>chunk(10)
                 .reader(catCommonMybatisItemReader())
                 .processor(cafeCatProcessor)
                 .writer(cafeCatCommonFileItemWriter())
-                .faultTolerant()
-                .skip(DuplicateKeyException.class)
-                .skipLimit(Integer.MAX_VALUE)
+                .taskExecutor(taskExecutor())
+                .throttleLimit(8)
                 .build();
+    }
+
+    @Bean
+    public TaskExecutor taskExecutor(){
+        return new SimpleAsyncTaskExecutor("spring_batch");
     }
 
     @Bean
