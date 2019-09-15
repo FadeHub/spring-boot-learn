@@ -69,9 +69,9 @@ public class CaThreadConfiguration {
                 // .listener(catStepListener)
                 .listener(catChunkListener)
                 .<Cat, CafeCat>chunk(10)
-                .reader(catCommonMybatisItemReader())
+                .reader(catThreadCommonMybatisItemReader())
                 .processor(cafeCatProcessor)
-                .writer(cafeCatCommonFileItemWriter())
+                .writer(cafeThreadCatCommonFileItemWriter())
                 .taskExecutor(taskExecutor())
                 .throttleLimit(8)
                 .build();
@@ -84,13 +84,13 @@ public class CaThreadConfiguration {
 
     @Bean
     @StepScope
-    public CommonMybatisItemReader<Cat> catCommonMybatisItemReader() {
+    public CommonMybatisItemReader<Cat> catThreadCommonMybatisItemReader() {
         return new CommonMybatisItemReader(sqlSessionFactory,Cat.class.getSimpleName());
     }
 
     @Bean
     @StepScope
-    public CommonFileItemWriter<CafeCat> cafeCatCommonFileItemWriter() {
+    public CommonFileItemWriter<CafeCat> cafeThreadCatCommonFileItemWriter() {
         return new CommonFileItemWriter<>(CafeCat.class);
     }
 

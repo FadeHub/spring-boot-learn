@@ -23,5 +23,15 @@
     </select>
 
 
+    <select id="selectPartitionList"  resultMap="catMap" parameterType="java.util.Map">
+        select id,catname,catage,cataddress from cat
+        where 1=1  and
+        <if test="fromId != null">
+            id <![CDATA[ >= ]]> #{fromId}
+         </if>
+         <if test="toId != null">
+             and id <![CDATA[ <= ]]>  #{toId}
+         </if>
+    </select>
 
 </mapper>
