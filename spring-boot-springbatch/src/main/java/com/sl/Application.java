@@ -19,6 +19,6 @@ public class Application {
     private static void run(ApplicationContext ctx) throws Exception{
         JobLauncher jobLauncher = ctx.getBean(JobLauncher.class);
         JobParameters jobParameters = new JobParametersBuilder().addDate("test", new Date()).toJobParameters();
-        JobExecution studentJob = jobLauncher.run(ctx.getBean("catPartitionerJob", Job.class), jobParameters);
+        JobExecution studentJob = jobLauncher.run(ctx.getBean("catJsonJob", Job.class), jobParameters);
     }
 }
