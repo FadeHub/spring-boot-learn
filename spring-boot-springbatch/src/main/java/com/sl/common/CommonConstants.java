@@ -1,5 +1,8 @@
 package com.sl.common;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * @author shuliangzhao
  * @Title: CommonConstants
@@ -10,4 +13,9 @@ package com.sl.common;
 public class CommonConstants {
 
     public static final String ENCODING_READ = "GBK";
+
+    private static final List<String> list = new ArrayList<>();
+    public static List<String> getList() {
+        return list;
+    }
 }
