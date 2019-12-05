@@ -32,4 +32,12 @@ public class UserController {
         List<User> user1 = bookMapper2.getUser();
         System.out.println("user1:" + user1);
     }
+
+    @GetMapping("/save")
+    public void save() {
+        User user = new User();
+        user.setName("张三");
+        user.setAge("12");
+        bookMapper.insert(user);
+    }
 }

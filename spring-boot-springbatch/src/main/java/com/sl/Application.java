@@ -19,7 +19,7 @@ public class Application {
     private static void run(ApplicationContext ctx) throws Exception{
         JobLauncher jobLauncher = ctx.getBean(JobLauncher.class);
         JobParameters jobParameters = new JobParametersBuilder().addDate("test", new Date()).toJobParameters();
-        JobExecution studentJob = jobLauncher.run(ctx.getBean("customJob", Job.class), jobParameters);
+        JobExecution studentJob = jobLauncher.run(ctx.getBean("cafeCatJob", Job.class), jobParameters);
     }
 
 }

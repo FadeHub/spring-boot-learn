@@ -15,4 +15,6 @@ import java.util.List;
 public interface BookMapper {
 
     List<User> getUser();
+
+    int insert(User user);
 }

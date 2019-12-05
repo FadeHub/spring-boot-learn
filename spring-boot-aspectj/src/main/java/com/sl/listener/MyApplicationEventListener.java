@@ -27,7 +27,7 @@ public class MyApplicationEventListener implements ApplicationListener<Applicati
 
 
     @Resource(name = "targetSqlSessionTemplate")
-    private SqlSessionTemplate targetSqlSessionTemplate;
+    private org.mybatis.spring.SqlSessionTemplate targetSqlSessionTemplate;
 
     @Resource(name = "midSqlSessionTemplate")
     private SqlSessionTemplate midSqlSessionTemplate;

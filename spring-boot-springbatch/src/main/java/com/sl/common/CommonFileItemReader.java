@@ -2,6 +2,7 @@ package com.sl.common;
 
 import com.sl.common.CommonConstants;
 import org.springframework.batch.item.file.FlatFileItemReader;
+import org.springframework.batch.item.file.LineCallbackHandler;
 import org.springframework.batch.item.file.mapping.BeanWrapperFieldSetMapper;
 import org.springframework.batch.item.file.mapping.DefaultLineMapper;
 import org.springframework.batch.item.file.transform.DefaultFieldSetFactory;
@@ -47,5 +48,13 @@ public class CommonFileItemReader<T> extends FlatFileItemReader<T> {
          fieldSetMapper.setTargetType(clz);
          defaultLineMapper.setFieldSetMapper(fieldSetMapper);
          setLineMapper(defaultLineMapper);
+         setLinesToSkip(1);
+         setSkippedLinesCallback(new LineCallbackHandler() {
+             @Override
+             public void handleLine(String line) {
+                 String[] split = line.split(",");
+                 System.out.println(split);
+             }
+         });
      }
 }
