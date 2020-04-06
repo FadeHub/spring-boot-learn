@@ -1,5 +1,6 @@
 package com.sl.dao;
 
+import com.sl.aspect.Log;
 import com.sl.entity.User;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -25,9 +26,9 @@ public class UserDao {
 
     @Resource(name = "jdbcTemplateTwo")
     private JdbcTemplate jdbcTemplateTwo;
-
+    @Log
     public void save(User user) {
-        jdbcTemplateOne.update("insert into user (name,age) values (?,?)",user.getName(),user.getAge());
+        //jdbcTemplateOne.update("insert into user (name,age) values (?,?)",user.getName(),user.getAge());
         jdbcTemplateTwo.update("insert into user (name,age) values (?,?)",user.getName(),user.getAge());
     }
 
