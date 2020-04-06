@@ -4,4 +4,33 @@
     <select id="getUser"  resultType="com.sl.entity.User">
         SELECT * FROM user
     </select>
+
+    <insert id="saveOrUpdate"  parameterType="java.util.List">
+            insert into user (
+            id,name,age)
+            values
+            <foreach collection="list" item="user" separator="," >
+                (
+                #{id,jdbcType=INTEGER},#{user.age},
+                #{user.name}
+                )
+            </foreach>
+            on duplicate key update id = values(id)
+         
+    </insert>
+
+    <insert id="saveOrUpdate2" >
+        <selectKey keyProperty="count" resultType="int" order="BEFORE">
+            select count(*) from user where id = #{id}
+        </selectKey>
+        <if test="count > 0">
+            update user
+            set age = #{aget},name = #{name}
+            where id = #{id}
+        </if>
+        <if test="count==0">
+            insert into user values(#{age},#{name})
+        </if>
+    </insert>
+
 </mapper>

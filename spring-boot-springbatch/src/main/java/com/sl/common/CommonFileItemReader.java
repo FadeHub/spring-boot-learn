@@ -1,14 +1,20 @@
 package com.sl.common;
 
 import com.sl.common.CommonConstants;
+import com.sl.reader.DefaultRecordSeparatorPolicy;
+import org.apache.commons.lang3.StringUtils;
+import org.springframework.batch.item.file.BufferedReaderFactory;
 import org.springframework.batch.item.file.FlatFileItemReader;
 import org.springframework.batch.item.file.LineCallbackHandler;
+import org.springframework.batch.item.file.SimpleBinaryBufferedReaderFactory;
 import org.springframework.batch.item.file.mapping.BeanWrapperFieldSetMapper;
 import org.springframework.batch.item.file.mapping.DefaultLineMapper;
 import org.springframework.batch.item.file.transform.DefaultFieldSetFactory;
 import org.springframework.batch.item.file.transform.DelimitedLineTokenizer;
 import org.springframework.core.io.FileSystemResource;
 
+import java.io.BufferedReader;
+import java.io.IOException;
 import java.lang.reflect.Field;
 import java.lang.reflect.Modifier;
 import java.util.ArrayList;
@@ -26,7 +32,7 @@ public class CommonFileItemReader<T> extends FlatFileItemReader<T> {
 
      private FileSystemResource fileSystemResource;
 
-     public CommonFileItemReader(Class clz) {
+     public CommonFileItemReader(Class clz){
          setEncoding(CommonConstants.ENCODING_READ);
          fileSystemResource = new FileSystemResource("D:\\aplus\\shuqian\\target\\"+clz.getSimpleName()+".csv");
          setResource(fileSystemResource);
@@ -48,12 +54,13 @@ public class CommonFileItemReader<T> extends FlatFileItemReader<T> {
          fieldSetMapper.setTargetType(clz);
          defaultLineMapper.setFieldSetMapper(fieldSetMapper);
          setLineMapper(defaultLineMapper);
+         setRecordSeparatorPolicy(new DefaultRecordSeparatorPolicy());
          setLinesToSkip(1);
          setSkippedLinesCallback(new LineCallbackHandler() {
              @Override
              public void handleLine(String line) {
                  String[] split = line.split(",");
-                 System.out.println(split);
+                 System.out.println(line);
              }
          });
      }
