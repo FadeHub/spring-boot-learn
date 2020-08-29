@@ -1,8 +1,12 @@
 package com.sl.listener;
 
+import com.sl.generic.ChannelProcessor;
 import org.springframework.batch.core.ChunkListener;
 import org.springframework.batch.core.scope.context.ChunkContext;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
+import java.util.Map;
 
 /**
  * @author shuliangzhao
@@ -13,8 +17,16 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class MyChunkListener implements ChunkListener {
+
+    @Autowired
+    private Map<String, ChannelProcessor> channelProcessorMap;
+
+    private ChannelProcessor channelProcessor;
+
     @Override
     public void beforeChunk(ChunkContext chunkContext) {
+        channelProcessor = channelProcessorMap.get("jcbChannelProcessor");
+        channelProcessor.processor();
         System.out.println("chunk执行之前：" +System.currentTimeMillis());
     }
 
