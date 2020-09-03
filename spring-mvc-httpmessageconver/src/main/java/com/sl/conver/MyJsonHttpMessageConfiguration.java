@@ -10,6 +10,7 @@ import org.springframework.http.MediaType;
 
 import java.nio.charset.Charset;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -38,6 +39,23 @@ public class MyJsonHttpMessageConfiguration {
         fastJsonHttpMessageConverter.setDefaultCharset(Charset.forName("UTF-8"));
         return fastJsonHttpMessageConverter;
     }
+
+    public static void main(String[] args) {
+        List<String> list = Arrays.asList("amed_cust_no","amed_nbr","amed_post_acct_no","amed_action");
+        for (String str:list) {
+            String[] split = str.split("\\_");
+            String s1  = "";
+            for (int i = 0;i<split.length;i++) {
+                if (i==0) {
+                    s1 = split[0];
+                }else {
+                    s1 = s1 + (split[i].substring(0,1).toUpperCase() + split[i].substring(1));
+                }
+            }
+            System.out.println(s1);
+        }
+    }
+
     /**
      *  配置全局支持的媒体类型
      */
