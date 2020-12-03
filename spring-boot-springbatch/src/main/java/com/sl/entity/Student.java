@@ -1,28 +1,32 @@
 package com.sl.entity;
 
-/**
- * @author shuliangzhao
- * @Title: Student
- * @ProjectName spring-boot-learn
- * @Description: TODO
- * @date 2019/9/7 17:09
- */
 public class Student {
+    private Integer id;
 
     private String name;
 
     private String age;
 
-    private String idCar;
+    private String idCard;
+
+    private String sex;
 
     private String address;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;
     }
 
     public void setName(String name) {
-        this.name = name;
+        this.name = name == null ? null : name.trim();
     }
 
     public String getAge() {
@@ -30,15 +34,23 @@ public class Student {
     }
 
     public void setAge(String age) {
-        this.age = age;
+        this.age = age == null ? null : age.trim();
     }
 
-    public String getIdCar() {
-        return idCar;
+    public String getIdCard() {
+        return idCard;
     }
 
-    public void setIdCar(String idCar) {
-        this.idCar = idCar;
+    public void setIdCard(String idCard) {
+        this.idCard = idCard == null ? null : idCard.trim();
+    }
+
+    public String getSex() {
+        return sex;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex == null ? null : sex.trim();
     }
 
     public String getAddress() {
@@ -46,6 +58,6 @@ public class Student {
     }
 
     public void setAddress(String address) {
-        this.address = address;
+        this.address = address == null ? null : address.trim();
     }
 }

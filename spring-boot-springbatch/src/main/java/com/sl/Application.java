@@ -1,5 +1,6 @@
 package com.sl;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.batch.core.*;
 import org.springframework.batch.core.launch.JobLauncher;
 import org.springframework.boot.SpringApplication;
@@ -9,6 +10,7 @@ import org.springframework.context.ApplicationContext;
 import java.util.Date;
 
 @SpringBootApplication
+@MapperScan(basePackages = "com.sl.mapper")
 public class Application {
 
     public static void main(String[] args) throws Exception {
@@ -19,7 +21,7 @@ public class Application {
     private static void run(ApplicationContext ctx) throws Exception{
         JobLauncher jobLauncher = ctx.getBean(JobLauncher.class);
         JobParameters jobParameters = new JobParametersBuilder().addDate("test", new Date()).toJobParameters();
-        JobExecution studentJob = jobLauncher.run(ctx.getBean("cafeCatJob", Job.class), jobParameters);
+        JobExecution studentJob = jobLauncher.run(ctx.getBean("catReadJob", Job.class), jobParameters);
     }
 
 }

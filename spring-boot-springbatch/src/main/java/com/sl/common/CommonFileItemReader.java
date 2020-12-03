@@ -54,14 +54,15 @@ public class CommonFileItemReader<T> extends FlatFileItemReader<T> {
          fieldSetMapper.setTargetType(clz);
          defaultLineMapper.setFieldSetMapper(fieldSetMapper);
          setLineMapper(defaultLineMapper);
-         setRecordSeparatorPolicy(new DefaultRecordSeparatorPolicy());
-         setLinesToSkip(1);
-         setSkippedLinesCallback(new LineCallbackHandler() {
+         //setRecordSeparatorPolicy(new DefaultRecordSeparatorPolicy());
+         //setLinesToSkip(1);
+         /*setSkippedLinesCallback(new LineCallbackHandler() {
              @Override
              public void handleLine(String line) {
                  String[] split = line.split(",");
                  System.out.println(line);
              }
-         });
+         });*/
      }
+
 }

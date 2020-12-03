@@ -65,7 +65,7 @@ public class CatMasterPartitionerJob {
     @Bean
     public PartitionHandler catPartitionHandler() {
         TaskExecutorPartitionHandler handler = new TaskExecutorPartitionHandler();
-        handler.setGridSize(10);
+        handler.setGridSize(16);
         handler.setTaskExecutor(catPartitionHandlerTaskExecutor());
         handler.setStep(catSlaveStep());
         try {

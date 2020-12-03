@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.sl.entity.Cat">
+<mapper namespace="com.sl.mapper.CafeCatMapper">
 
     <!-- 可根据自己的需求，是否要使用 -->
-    <resultMap id="catMap" type="com.sl.entity.Cat" >
+    <resultMap id="cafeCatMap" type="com.sl.entity.CafeCat" >
 
         <id column="id" property="id" jdbcType="INTEGER" />
         <result column="catname" property="catname" jdbcType="VARCHAR" />
@@ -13,18 +13,22 @@
     </resultMap>
 
 
-    <insert id="insertCat" parameterType="com.sl.entity.Cat">
-           insert into cat(id, catname, catage, cataddress)
-               values(#{id},#{catname}, #{catage}, #{cataddress})
+    <insert id="insert" parameterType="java.util.List">
+           insert into cafecat(catname, catage, cataddress)
+               values
+               <foreach collection="list"  item="item" index="index" separator=",">
+                   (#{item.catname}, #{item.catage}, #{item.cataddress})
+               </foreach>
+
    </insert>
 
-    <select id="selectList"  resultMap="catMap">
-        select id,catname,catage,cataddress from cat
+    <select id="selectList"  resultMap="cafeCatMap">
+        select id,catname,catage,cataddress from cafecate
     </select>
 
 
-    <select id="selectPartitionList"  resultMap="catMap" parameterType="java.util.Map">
-        select id,catname,catage,cataddress from cat
+    <select id="selectPartitionList"  resultMap="cafeCatMap" parameterType="java.util.Map">
+        select id,catname,catage,cataddress from cafecate
         where 1=1  and
         <if test="fromId != null">
             id <![CDATA[ >= ]]> #{fromId}
