@@ -21,6 +21,6 @@ public class StudentProcessor extends CommonProcessor<People, Student> {
        o.setName(people.getName());
        o.setAddress(people.getAdress());
        o.setAge(people.getAge());
-       o.setIdCar(people.getIdCard());
+       o.setIdCard(people.getIdCard());
     }
 }
