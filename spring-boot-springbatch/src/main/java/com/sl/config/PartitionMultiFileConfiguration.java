@@ -2,6 +2,7 @@ package com.sl.config;
 
 import com.sl.base.BaseObjectReader;
 import com.sl.entity.CreditBill;
+import com.sl.listener.PartitionStepListener;
 import com.sl.partitioner.MyMultiResourcePartitioner;
 import com.sl.processor.PartitonMultiFileProcessor;
 import com.sl.reader.PartitionMultiFileReader;
@@ -50,6 +51,9 @@ public class PartitionMultiFileConfiguration {
     @Autowired
     private PartitionMultiFileWriter partitionMultiFileWriter;
 
+    @Autowired
+    private PartitionStepListener partitionStepListener;
+
     @Bean
     public Job partitionMultiFileJob() {
          return jobBuilderFactory.get("partitionMultiFileJob")
@@ -77,6 +81,7 @@ public class PartitionMultiFileConfiguration {
     @Bean
     public Step partitionSlaveMultiFileStep() {
         return stepBuilderFactory.get("partitionSlaveMultiFileStep")
+                .listener(partitionStepListener)
                 .<CreditBill,CreditBill>chunk(1)
                 .reader(partitionMultiFileReader(null))
                 .processor(partitonMultiFileProcessor)
