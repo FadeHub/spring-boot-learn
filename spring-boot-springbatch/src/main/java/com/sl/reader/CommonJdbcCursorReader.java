@@ -23,7 +23,7 @@ public class CommonJdbcCursorReader extends JdbcCursorItemReader {
        BeanPropertyRowMapper beanPropertyRowMapper = new BeanPropertyRowMapper();
        beanPropertyRowMapper.setMappedClass(clz);
        setRowMapper(beanPropertyRowMapper);
-        //自定义RowMapper
+        //自定义RowMapper实现
        /*setRowMapper((rs,i) -> {
             CreditBill creditBill = new CreditBill();
             creditBill.setAcctid(rs.getString("acctid"));
