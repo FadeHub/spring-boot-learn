@@ -15,7 +15,7 @@ public class Application {
 
     public static void main(String[] args) throws Exception {
         ApplicationContext run = SpringApplication.run(Application.class, args);
-        run(run);
+        //run(run);
     }
 
     private static void run(ApplicationContext ctx) throws Exception{
