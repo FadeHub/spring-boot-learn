@@ -14,6 +14,7 @@ public class CarTest {
     public static void main(String[] args) {
         InvocationHandler handler = new CarHandler(new AudiCar());
         Car car = (Car) ProxyUtil.invokeProxy(AudiCar.class, handler);
-        car.run();
+        String red = car.run("red");
+        System.out.println(red);
     }
 }

@@ -9,7 +9,8 @@ package com.sl.proxy.jdk;
  */
 public class AudiCar implements Car {
     @Override
-    public void run() {
-        System.out.println("速度70！");
+    public String run(String str) {
+        System.out.println("速度70！" +str);
+        return str;
     }
 }

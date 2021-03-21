@@ -9,5 +9,5 @@ package com.sl.proxy.jdk;
  */
 public interface Car {
 
-   void run();
+   String run(String str);
 }

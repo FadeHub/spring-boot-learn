@@ -21,8 +21,9 @@ public class CarHandler implements InvocationHandler {
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
         System.out.println("Before invoke "  + method.getName()+ ",args" + args);
-        method.invoke(object, args);
+
         System.out.println("After invoke " + method.getName());
-        return null;
+        Object invoke = method.invoke(object, args);
+        return invoke;
     }
 }
