@@ -1,7 +1,6 @@
 package com.sl.base;
 
 import com.sl.base.handler.ObjectProcessorHandler;
-import com.sl.base.handler.ObjectWriterDbWriter;
 import com.sl.base.handler.ReadObjectFromDbHandler;
 import com.sl.base.handler.WriterObjectToDbHander;
 import org.apache.ibatis.session.SqlSessionFactory;

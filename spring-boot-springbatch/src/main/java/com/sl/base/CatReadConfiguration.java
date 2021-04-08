@@ -1,7 +1,6 @@
 package com.sl.base;
 
 import com.sl.base.handler.ObjectProcessorHandler;
-import com.sl.base.handler.ObjectWriterDbWriter;
 import com.sl.base.handler.WriterObjectToDbHander;
 import com.sl.base.service.CafeCatInsetService;
 import com.sl.base.service.CafeService;

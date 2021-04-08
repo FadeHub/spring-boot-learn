@@ -1,5 +1,6 @@
-package com.sl.base.handler;
+package com.sl.base;
 
+import com.sl.base.handler.WriterObjectToDbHander;
 import org.springframework.batch.item.ItemWriter;
 
 import java.util.List;
