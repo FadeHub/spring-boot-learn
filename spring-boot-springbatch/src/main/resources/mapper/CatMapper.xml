@@ -22,6 +22,9 @@
         select id,catname,catage,cataddress from cat
     </select>
 
+    <select id="selectPageList"  resultMap="catMap" parameterType="java.util.Map">
+        select id,catname,catage,cataddress from cat limit #{_skiprows},#{_pagesize}
+    </select>
 
     <select id="selectPartitionList"  resultMap="catMap" parameterType="java.util.Map">
         select id,catname,catage,cataddress from cat

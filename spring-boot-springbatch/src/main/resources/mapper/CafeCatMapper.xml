@@ -22,13 +22,8 @@
 
    </insert>
 
-    <select id="selectList"  resultMap="cafeCatMap">
-        select id,catname,catage,cataddress from cafecate
-    </select>
-
-
     <select id="selectPartitionList"  resultMap="cafeCatMap" parameterType="java.util.Map">
-        select id,catname,catage,cataddress from cafecate
+        select id,catname,catage,cataddress from cafecat
         where 1=1  and
         <if test="fromId != null">
             id <![CDATA[ >= ]]> #{fromId}

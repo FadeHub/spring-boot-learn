@@ -54,7 +54,7 @@ public class CatReadConfiguration {
     @StepScope
     public BaseObjectReader catItemReader() {
        BaseObjectReader.ReaderDefinition<Cat> definition = new BaseObjectReader.ReaderDefinition<>(Cat.class,"catItemReader",
-               "com.sl.entity.Cat.selectPartitionList",50,()->{
+               "com.sl.entity.Cat.selectPageList",50,()->{
            Map<String,Object> map = new HashMap<>();
            map.put("fromId",1);
            map.put("toId",10);

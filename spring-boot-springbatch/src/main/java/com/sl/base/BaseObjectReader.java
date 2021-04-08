@@ -44,7 +44,6 @@ public class BaseObjectReader<T> extends MyBatisPagingItemReader<T> {
             this.pageSize = pageSize;
             this.parameter = parameter;
         }
-
         public Class<T> getT() {
             return t;
         }

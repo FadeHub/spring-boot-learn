@@ -36,7 +36,6 @@ public class BaseStepExecutorFactory {
             public String queryId() {
                 return definition.getQueryId();
             }
-
             @Override
             public int pageSize() {
                 return definition.getPageSize();
