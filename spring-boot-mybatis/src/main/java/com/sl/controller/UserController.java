@@ -1,7 +1,7 @@
 package com.sl.controller;
 
 import com.sl.entity.User;
-import com.sl.mapper1.BookMapper;
+import com.sl.mapper.BookMapper;
 import com.sl.mapper2.BookMapper2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;

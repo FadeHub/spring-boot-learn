@@ -1,7 +1,7 @@
 package com.sl;
 
 import com.sl.entity.User;
-import com.sl.mapper1.BookMapper;
+import com.sl.mapper.BookMapper;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
