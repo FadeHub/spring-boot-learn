@@ -30,6 +30,9 @@ public class CommonFileItemWriter<T> extends FlatFileItemWriter<T> {
         List<String> list = new ArrayList<>();
         for (java.lang.reflect.Field field : fields) {
             if (!Modifier.isStatic(field.getModifiers())) {
+                if (field.getName().equals("id")) {
+                    continue;
+                }
                 list.add(field.getName());
             }
         }

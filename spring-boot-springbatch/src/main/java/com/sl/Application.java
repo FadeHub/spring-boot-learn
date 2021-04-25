@@ -15,13 +15,13 @@ public class Application {
 
     public static void main(String[] args) throws Exception {
         ApplicationContext run = SpringApplication.run(Application.class, args);
-        run(run);
+        //run(run);
     }
 
     private static void run(ApplicationContext ctx) throws Exception{
         JobLauncher jobLauncher = ctx.getBean(JobLauncher.class);
         JobParameters jobParameters = new JobParametersBuilder().addDate("test1", new Date()).toJobParameters();
-        JobExecution studentJob = jobLauncher.run(ctx.getBean("classifierJob", Job.class), jobParameters);
+        JobExecution studentJob = jobLauncher.run(ctx.getBean("studentJob", Job.class), jobParameters);
     }
 
 }

@@ -1,9 +1,9 @@
 package com.sl.config;
 
+import com.sl.common.CommonFileItemReader;
 import com.sl.common.CommonFileItemWriter;
 import com.sl.entity.People;
 import com.sl.entity.Student;
-import com.sl.common.CommonFileItemReader;
 import com.sl.processor.StudentProcessor;
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.Step;
