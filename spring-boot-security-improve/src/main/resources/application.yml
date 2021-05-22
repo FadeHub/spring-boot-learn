@@ -1,0 +1,17 @@
+#spring:
+#  security:
+#   user:
+#     name: zhangsan
+#     password: 123
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql:///chapter01?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC
+    username: root
+    password: root
+
+mybatis:
+  type-aliases-package: com.robod.entity
+  configuration:
+    map-underscore-to-camel-case: true
