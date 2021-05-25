@@ -40,6 +40,7 @@ public class Client {
         university.add(history);
 
         university.print();
+
     }
 
 }
