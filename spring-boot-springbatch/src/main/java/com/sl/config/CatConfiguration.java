@@ -63,7 +63,7 @@ public class CatConfiguration {
     @Bean
     public Step catStep() {
         return stepBuilderFactory.get("catStep")
-                // .listener(catStepListener)
+                 .listener(catStepListener)
                 .listener(catChunkListener)
                 .<Cat, CafeCat>chunk(10)
                 .reader(catCommonMybatisItemReader())

@@ -7,11 +7,9 @@ public class Student {
 
     private String age;
 
-    private String idCard;
-
-    private String sex;
-
     private String address;
+
+    private String idCard;
 
     public Integer getId() {
         return id;
@@ -37,27 +35,19 @@ public class Student {
         this.age = age == null ? null : age.trim();
     }
 
-    public String getIdCard() {
-        return idCard;
-    }
-
-    public void setIdCard(String idCard) {
-        this.idCard = idCard == null ? null : idCard.trim();
-    }
-
-    public String getSex() {
-        return sex;
-    }
-
-    public void setSex(String sex) {
-        this.sex = sex == null ? null : sex.trim();
-    }
-
     public String getAddress() {
         return address;
     }
 
     public void setAddress(String address) {
         this.address = address == null ? null : address.trim();
+    }
+
+    public String getIdCard() {
+        return idCard;
+    }
+
+    public void setIdCard(String idCard) {
+        this.idCard = idCard == null ? null : idCard.trim();
     }
 }

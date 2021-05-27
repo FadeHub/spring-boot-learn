@@ -20,8 +20,8 @@ import java.util.Date;
 @StepScope
 public class StudentProcessor extends CommonProcessor<People, Student> {
 
-    @Value("#{jobParameters[time]}")
-    private Date time;
+    @Value("#{jobParameters[jobName]}")
+    private String jobName;
 
     @Override
     public void processor(Student o, People people) {

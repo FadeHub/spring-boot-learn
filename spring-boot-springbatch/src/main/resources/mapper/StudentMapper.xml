@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.sl.mapper.StudentMapper">
+<mapper namespace="com.sl.entity.Student">
   <resultMap id="BaseResultMap" type="com.sl.entity.Student">
     <result column="id" jdbcType="INTEGER" property="id" />
     <result column="name" jdbcType="VARCHAR" property="name" />
     <result column="age" jdbcType="VARCHAR" property="age" />
-    <result column="id_card" jdbcType="VARCHAR" property="idCard" />
-    <result column="sex" jdbcType="VARCHAR" property="sex" />
     <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="id_card" jdbcType="VARCHAR" property="idCard" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -68,7 +67,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, name, age, id_card, sex, address
+    id, name, age, address, id_card
   </sql>
   <select id="selectByExample" parameterType="com.sl.entity.StudentExample" resultMap="BaseResultMap">
     select
@@ -92,12 +91,10 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.sl.entity.Student">
-    insert into student (id, name, age, 
-      id_card, sex, address
-      )
-    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{age,jdbcType=VARCHAR}, 
-      #{idCard,jdbcType=VARCHAR}, #{sex,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}
-      )
+    insert into student (id, name, age,
+      address, id_card)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{age,jdbcType=VARCHAR},
+      #{address,jdbcType=VARCHAR}, #{idCard,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.sl.entity.Student">
     insert into student
@@ -111,14 +108,11 @@
       <if test="age != null">
         age,
       </if>
-      <if test="idCard != null">
-        id_card,
-      </if>
-      <if test="sex != null">
-        sex,
-      </if>
       <if test="address != null">
         address,
+      </if>
+      <if test="idCard != null">
+        id_card,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
@@ -131,14 +125,11 @@
       <if test="age != null">
         #{age,jdbcType=VARCHAR},
       </if>
-      <if test="idCard != null">
-        #{idCard,jdbcType=VARCHAR},
-      </if>
-      <if test="sex != null">
-        #{sex,jdbcType=VARCHAR},
-      </if>
       <if test="address != null">
         #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="idCard != null">
+        #{idCard,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -160,14 +151,11 @@
       <if test="record.age != null">
         age = #{record.age,jdbcType=VARCHAR},
       </if>
-      <if test="record.idCard != null">
-        id_card = #{record.idCard,jdbcType=VARCHAR},
-      </if>
-      <if test="record.sex != null">
-        sex = #{record.sex,jdbcType=VARCHAR},
-      </if>
       <if test="record.address != null">
         address = #{record.address,jdbcType=VARCHAR},
+      </if>
+      <if test="record.idCard != null">
+        id_card = #{record.idCard,jdbcType=VARCHAR},
       </if>
     </set>
     <if test="_parameter != null">
@@ -179,9 +167,8 @@
     set id = #{record.id,jdbcType=INTEGER},
       name = #{record.name,jdbcType=VARCHAR},
       age = #{record.age,jdbcType=VARCHAR},
-      id_card = #{record.idCard,jdbcType=VARCHAR},
-      sex = #{record.sex,jdbcType=VARCHAR},
-      address = #{record.address,jdbcType=VARCHAR}
+      address = #{record.address,jdbcType=VARCHAR},
+      id_card = #{record.idCard,jdbcType=VARCHAR}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
