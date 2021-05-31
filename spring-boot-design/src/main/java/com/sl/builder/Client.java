@@ -3,6 +3,7 @@ package com.sl.builder;
 import java.util.Random;
 
 /**
+ * 建造者模式
  * @author shuliangzhao
  * @Title: Cliect
  * @ProjectName spring-boot-learn
