@@ -1,4 +1,4 @@
-package com.sl.util;
+package com.sl.thread;
 
 import java.util.StringJoiner;
 

@@ -1,4 +1,4 @@
-package com.sl.util;
+package com.sl.thread;
 
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;

@@ -1,7 +1,7 @@
 package com.sl.jobexecutor;
 
-import com.sl.util.JobUtil;
-import com.sl.util.SpringContextUtil;
+import com.sl.thread.JobUtil;
+import com.sl.thread.SpringContextUtil;
 import com.xxl.job.core.biz.model.ReturnT;
 import com.xxl.job.core.handler.annotation.XxlJob;
 import com.xxl.job.core.log.XxlJobLogger;

@@ -1,6 +1,6 @@
 package com.sl.future;
 
-import com.sl.util.SmallTool;
+import com.sl.thread.SmallTool;
 
 import java.util.concurrent.CompletableFuture;
 
