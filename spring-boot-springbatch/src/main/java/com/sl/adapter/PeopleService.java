@@ -21,6 +21,7 @@ public class PeopleService {
          p.setAdress(people.getAdress().toUpperCase(Locale.ROOT));
          p.setAge(people.getAge());
          p.setIdCard(people.getIdCard());
+        System.out.println("p：" + p);
          return p;
     }
 }

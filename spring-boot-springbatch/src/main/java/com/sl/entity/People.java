@@ -15,7 +15,19 @@ public class People {
 
     private String adress;
 
+    public People() {
+    }
+
+    public People(String name, String age, String adress, String idCard) {
+        this.name = name;
+        this.age = age;
+        this.adress = adress;
+        this.idCard = idCard;
+    }
+
     private String idCard;
+
+
 
     public String getName() {
         return name;
@@ -47,5 +59,15 @@ public class People {
 
     public void setIdCard(String idCard) {
         this.idCard = idCard;
+    }
+
+    @Override
+    public String toString() {
+        return "People{" +
+                "name='" + name + '\'' +
+                ", age='" + age + '\'' +
+                ", adress='" + adress + '\'' +
+                ", idCard='" + idCard + '\'' +
+                '}';
     }
 }
