@@ -39,7 +39,7 @@ public class Application {
         //JobParameters jobParameters = new JobParametersBuilder().addDate("test1", new Date()).toJobParameters();
         JobParameters jobParameters = new JobParametersBuilder().addDate("test1", new Date()).
                 addString("script","D:\\shuqian\\target\\upperCase.js").toJobParameters();
-        JobExecution studentJob = jobLauncher.run(ctx.getBean("scriptCafeCatJob", Job.class), jobParameters);
+        JobExecution studentJob = jobLauncher.run(ctx.getBean("catFlowJob", Job.class), jobParameters);
     }
 
 }

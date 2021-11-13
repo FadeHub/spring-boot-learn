@@ -11,6 +11,7 @@ import com.sl.listener.CatChunkListener;
 import com.sl.listener.CatJobListener;
 import com.sl.listener.CatStepListener;
 import com.sl.processor.CafeCatProcessor;
+import com.sl.processor.CatProcessor;
 import com.sl.processor.StudentProcessor;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.springframework.batch.core.Job;
@@ -63,6 +64,9 @@ public class CatFlowConfiguration {
 
     @Autowired
     private StudentProcessor studentProcessor;
+
+    @Autowired
+    private CatProcessor catProcessor;
 
     @Bean
     public Job catFlowJob() {
@@ -141,7 +145,7 @@ public class CatFlowConfiguration {
     @Bean
     @StepScope
     public CommonFileItemWriter<Student> step3flow2CommonFileItemWriter() {
-        return new CommonFileItemWriter<>(Student.class);
+        return new CommonFileItemWriter<>(Student.class,"Step3");
     }
 
     @Bean
@@ -169,23 +173,23 @@ public class CatFlowConfiguration {
     @Bean
     public Step step2() {
         return stepBuilderFactory.get("step2")
-                .<People, Student>chunk(10)
+                .<CafeCat, Cat>chunk(10)
                 .reader(step2flow1CommonFileItemReader())
-                .processor(studentProcessor)
+                .processor(catProcessor)
                 .writer(step2flow1CommonFileItemWriter())
                 .build();
     }
 
     @Bean
     @StepScope
-    public CommonFileItemReader<People> step2flow1CommonFileItemReader() {
-        return new CommonFileItemReader<>(People.class);
+    public CommonFileItemReader<CafeCat> step2flow1CommonFileItemReader() {
+        return new CommonFileItemReader<>(CafeCat.class);
     }
 
     @Bean
     @StepScope
-    public CommonFileItemWriter<Student> step2flow1CommonFileItemWriter() {
-        return new CommonFileItemWriter<>(Student.class);
+    public CommonFileItemWriter<Cat> step2flow1CommonFileItemWriter() {
+        return new CommonFileItemWriter<>(Cat.class);
     }
 
     @Bean

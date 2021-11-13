@@ -53,4 +53,11 @@ public class CommonFileItemWriter<T> extends FlatFileItemWriter<T> {
         setResource(fileSystemResource);
 
     }
+
+    public CommonFileItemWriter(Class clz,String name) {
+        init(clz);
+        fileSystemResource = new FileSystemResource("D:\\aplus\\shuqian\\source\\"+ name + ".csv");
+        setResource(fileSystemResource);
+
+    }
 }
