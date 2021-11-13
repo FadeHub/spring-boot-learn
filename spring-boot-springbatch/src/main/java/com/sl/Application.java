@@ -36,8 +36,10 @@ public class Application {
 
     private static void run(ApplicationContext ctx) throws Exception{
         JobLauncher jobLauncher = ctx.getBean(JobLauncher.class);
-        JobParameters jobParameters = new JobParametersBuilder().addDate("test1", new Date()).toJobParameters();
-        JobExecution studentJob = jobLauncher.run(ctx.getBean("taskletAdapterJob", Job.class), jobParameters);
+        //JobParameters jobParameters = new JobParametersBuilder().addDate("test1", new Date()).toJobParameters();
+        JobParameters jobParameters = new JobParametersBuilder().addDate("test1", new Date()).
+                addString("script","D:\\shuqian\\target\\upperCase.js").toJobParameters();
+        JobExecution studentJob = jobLauncher.run(ctx.getBean("scriptCafeCatJob", Job.class), jobParameters);
     }
 
 }

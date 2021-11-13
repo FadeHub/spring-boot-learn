@@ -34,7 +34,7 @@ public class CommonFileItemReader<T> extends FlatFileItemReader<T> {
 
      public CommonFileItemReader(Class clz){
          setEncoding(CommonConstants.ENCODING_READ);
-         fileSystemResource = new FileSystemResource("D:\\aplus\\shuqian\\target\\"+clz.getSimpleName()+".csv");
+         fileSystemResource = new FileSystemResource("D:\\shuqian\\target\\"+clz.getSimpleName()+".csv");
          setResource(fileSystemResource);
          DefaultLineMapper defaultLineMapper = new DefaultLineMapper();
          DelimitedLineTokenizer delimitedLineTokenizer = new DelimitedLineTokenizer();

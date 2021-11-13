@@ -16,7 +16,7 @@ public class CommonMybatisItemWriter<T> extends MyBatisBatchItemWriter<T> {
     public  CommonMybatisItemWriter(SqlSessionFactory sqlSessionFactory,String name) {
         setSqlSessionFactory(sqlSessionFactory);
         //setStatementId("com.sl.entity." + name + ".insertCat");
-        setStatementId("com.sl.entity." + name + ".insert");
+        setStatementId("com.sl.entity." + name + ".insertCat");
         setAssertUpdates(false);
     }
 
