@@ -1,3 +1,7 @@
+/**
+ * 脚本语言内容
+ * @constructor
+ */
 function Cat(){}
 var cat = new Cat();
 cat.cataddress=item.getCataddress().toUpperCase();
