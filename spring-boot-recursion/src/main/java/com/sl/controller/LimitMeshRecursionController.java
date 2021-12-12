@@ -2,7 +2,6 @@ package com.sl.controller;
 
 import com.sl.recursion.LimitMeshRecursion;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -12,7 +11,7 @@ import java.util.List;
  * @package: com.sl.controller
  * @author: shuliangzhao
  * @description:
- * @date 2021/12/1217:02
+ * @date 2021/12/12 17:02
  */
 @RestController
 public class LimitMeshRecursionController {

@@ -4,7 +4,7 @@ package com.sl.entity;
  * @package: com.sl
  * @author: shuliangzhao
  * @description:
- * @date 2021/12/1215:50
+ * @date 2021/12/12 15:50
  */
 public class LimitMesh {
 
