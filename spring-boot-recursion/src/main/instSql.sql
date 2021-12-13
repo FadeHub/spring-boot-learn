@@ -7,11 +7,11 @@ CREATE TABLE `limit_mesh` (
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
 truncate table limit_mesh;
-INSERT INTO `limit_mesh`(`id`, `parent_node`, `child_node`) VALUES (1, 'crilm', 'inst');
-INSERT INTO `limit_mesh`(`id`, `parent_node`, `child_node`) VALUES (2, 'crilm', 'cash');
-INSERT INTO `limit_mesh`(`id`, `parent_node`, `child_node`) VALUES (3, 'crilm', 'instCash');
-INSERT INTO `limit_mesh`(`id`, `parent_node`, `child_node`) VALUES (4, 'cust', 'crilm');
-INSERT INTO `limit_mesh`(`id`, `parent_node`, `child_node`) VALUES (5, 'custTotal', 'cust');
-INSERT INTO `limit_mesh`(`id`, `parent_node`, `child_node`) VALUES (6, 'cust', 'splmt');
-INSERT INTO `limit_mesh`(`id`, `parent_node`, `child_node`) VALUES (7, 'splmt', 'byj');
-INSERT INTO `limit_mesh`(`id`, `parent_node`, `child_node`) VALUES (8, 'splmt', 'ygj');
+INSERT INTO `limit_mesh`(`parent_node`, `child_node`) VALUES ('crilm', 'inst');
+INSERT INTO `limit_mesh`(`parent_node`, `child_node`) VALUES ('crilm', 'cash');
+INSERT INTO `limit_mesh`(`parent_node`, `child_node`) VALUES ('crilm', 'instCash');
+INSERT INTO `limit_mesh`(`parent_node`, `child_node`) VALUES ('cust', 'crilm');
+INSERT INTO `limit_mesh`(`parent_node`, `child_node`) VALUES ('custTotal', 'cust');
+INSERT INTO `limit_mesh`(`parent_node`, `child_node`) VALUES ('cust', 'splmt');
+INSERT INTO `limit_mesh`(`parent_node`, `child_node`) VALUES ('splmt', 'byj');
+INSERT INTO `limit_mesh`(`parent_node`, `child_node`) VALUES ('splmt', 'ygj');
