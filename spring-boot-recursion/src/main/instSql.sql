@@ -1,3 +1,4 @@
+DROP table if exists limit_mesh;
 CREATE TABLE `limit_mesh` (
     `id` int NOT NULL AUTO_INCREMENT,
     `parent_node` varchar(255) COLLATE utf8mb4_bin DEFAULT NULL,
@@ -5,6 +6,7 @@ CREATE TABLE `limit_mesh` (
      PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
+truncate table limit_mesh;
 INSERT INTO `limit_mesh`(`id`, `parent_node`, `child_node`) VALUES (1, 'crilm', 'inst');
 INSERT INTO `limit_mesh`(`id`, `parent_node`, `child_node`) VALUES (2, 'crilm', 'cash');
 INSERT INTO `limit_mesh`(`id`, `parent_node`, `child_node`) VALUES (3, 'crilm', 'instCash');
