@@ -38,4 +38,14 @@ public class LimitMeshRecursionController {
     public List<String> getChildNoList(String node) {
         return limitMeshRecursion.getLimitMeshChildList(node);
     }
+
+    /**
+     * 递归查询账户层节点
+     * @param node
+     * @return
+     */
+    @RequestMapping("/getAcctParent")
+    public List<String> getAcctParentNoList(String node) {
+        return limitMeshRecursion.getLimitMeshAcctParentNoList(node);
+    }
 }
