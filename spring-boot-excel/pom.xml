@@ -13,12 +13,12 @@
     </properties>
     
     <dependencies>
-        
-        <dependency>
-            <groupId>com.github.crab2died</groupId>
-            <artifactId>Excel4J</artifactId>
-            <version>3.0.0-Alpha</version>
-        </dependency>
+
+<!--        <dependency>-->
+<!--            <groupId>com.github.crab2died</groupId>-->
+<!--            <artifactId>Excel4J</artifactId>-->
+<!--            <version>3.0.0-Alpha</version>-->
+<!--        </dependency>-->
     </dependencies>
 
     <build>
@@ -31,8 +31,8 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
-                    <source>7</source>
-                    <target>7</target>
+                    <source>8</source>
+                    <target>8</target>
                 </configuration>
             </plugin>
         </plugins>
