@@ -1,0 +1,567 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sl.mapper.TDmCustMapperExt">
+  <cache type="com.sl.cache.MybatisRedisCache" />
+  <resultMap id="BaseResultMap" type="com.sl.domain.TDmCust">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="bal_bmp" jdbcType="VARCHAR" property="balBmp" />
+    <result column="bal_cmpfee" jdbcType="VARCHAR" property="balCmpfee" />
+    <result column="ab_source" jdbcType="VARCHAR" property="abSource" />
+    <result column="bank" jdbcType="VARCHAR" property="bank" />
+    <result column="block_code" jdbcType="VARCHAR" property="blockCode" />
+    <result column="block_day" jdbcType="VARCHAR" property="blockDay" />
+    <result column="bmw_yn" jdbcType="VARCHAR" property="bmwYn" />
+    <result column="busi_level" jdbcType="VARCHAR" property="busiLevel" />
+    <result column="busi_phone" jdbcType="VARCHAR" property="busiPhone" />
+    <result column="busi_serv" jdbcType="VARCHAR" property="busiServ" />
+    <result column="ca_pcnt" jdbcType="VARCHAR" property="caPcnt" />
+    <result column="class_code" jdbcType="VARCHAR" property="classCode" />
+    <result column="class_nbr" jdbcType="VARCHAR" property="classNbr" />
+    <result column="clyn" jdbcType="VARCHAR" property="clyn" />
+    <result column="coll_exp" jdbcType="VARCHAR" property="collExp" />
+    <result column="coll_end" jdbcType="VARCHAR" property="collEnd" />
+    <result column="comp_duty" jdbcType="VARCHAR" property="compDuty" />
+    <result column="comp_name" jdbcType="VARCHAR" property="compName" />
+    <result column="comp_name2" jdbcType="VARCHAR" property="compName2" />
+    <result column="con_begdt" jdbcType="VARCHAR" property="conBegdt" />
+    <result column="con_enddt" jdbcType="VARCHAR" property="conEnddt" />
+    <result column="crappldate" jdbcType="VARCHAR" property="crappldate" />
+    <result column="cred_rst" jdbcType="VARCHAR" property="credRst" />
+    <result column="cred_limit" jdbcType="VARCHAR" property="credLimit" />
+    <result column="cred_expd" jdbcType="VARCHAR" property="credExpd" />
+    <result column="crexp_req" jdbcType="VARCHAR" property="crexpReq" />
+    <result column="crlmt_req" jdbcType="VARCHAR" property="crlmtReq" />
+    <result column="crsucsdate" jdbcType="VARCHAR" property="crsucsdate" />
+    <result column="cr_flag" jdbcType="VARCHAR" property="crFlag" />
+    <result column="cr_exp" jdbcType="VARCHAR" property="crExp" />
+    <result column="cusplit" jdbcType="VARCHAR" property="cusplit" />
+    <result column="custr_nbr" jdbcType="VARCHAR" property="custrNbr" />
+    <result column="custr_ref" jdbcType="VARCHAR" property="custrRef" />
+    <result column="custr_seg" jdbcType="VARCHAR" property="custrSeg" />
+    <result column="cust_sts" jdbcType="VARCHAR" property="custSts" />
+    <result column="gender" jdbcType="VARCHAR" property="gender" />
+    <result column="hmtel_area" jdbcType="VARCHAR" property="hmtelArea" />
+    <result column="home_phone" jdbcType="VARCHAR" property="homePhone" />
+    <result column="id_dte" jdbcType="VARCHAR" property="idDte" />
+    <result column="id_issdt" jdbcType="VARCHAR" property="idIssdt" />
+    <result column="lang_code" jdbcType="VARCHAR" property="langCode" />
+    <result column="mail_code" jdbcType="VARCHAR" property="mailCode" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, create_time, update_time, bal_bmp, bal_cmpfee, ab_source, bank, block_code, block_day, 
+    bmw_yn, busi_level, busi_phone, busi_serv, ca_pcnt, class_code, class_nbr, clyn, 
+    coll_exp, coll_end, comp_duty, comp_name, comp_name2, con_begdt, con_enddt, crappldate, 
+    cred_rst, cred_limit, cred_expd, crexp_req, crlmt_req, crsucsdate, cr_flag, cr_exp, 
+    cusplit, custr_nbr, custr_ref, custr_seg, cust_sts, gender, hmtel_area, home_phone, 
+    id_dte, id_issdt, lang_code, mail_code
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap" useCache="true">
+    select
+    <include refid="Base_Column_List" />
+    from t_dm_cust
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from t_dm_cust
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.sl.domain.TDmCust">
+    insert into t_dm_cust (id, create_time, update_time, 
+      bal_bmp, bal_cmpfee, ab_source, 
+      bank, block_code, block_day, 
+      bmw_yn, busi_level, busi_phone, 
+      busi_serv, ca_pcnt, class_code, 
+      class_nbr, clyn, coll_exp, 
+      coll_end, comp_duty, comp_name, 
+      comp_name2, con_begdt, con_enddt, 
+      crappldate, cred_rst, cred_limit, 
+      cred_expd, crexp_req, crlmt_req, 
+      crsucsdate, cr_flag, cr_exp, 
+      cusplit, custr_nbr, custr_ref, 
+      custr_seg, cust_sts, gender, 
+      hmtel_area, home_phone, id_dte, 
+      id_issdt, lang_code, mail_code
+      )
+    values (#{id,jdbcType=BIGINT}, #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, 
+      #{balBmp,jdbcType=VARCHAR}, #{balCmpfee,jdbcType=VARCHAR}, #{abSource,jdbcType=VARCHAR}, 
+      #{bank,jdbcType=VARCHAR}, #{blockCode,jdbcType=VARCHAR}, #{blockDay,jdbcType=VARCHAR}, 
+      #{bmwYn,jdbcType=VARCHAR}, #{busiLevel,jdbcType=VARCHAR}, #{busiPhone,jdbcType=VARCHAR}, 
+      #{busiServ,jdbcType=VARCHAR}, #{caPcnt,jdbcType=VARCHAR}, #{classCode,jdbcType=VARCHAR}, 
+      #{classNbr,jdbcType=VARCHAR}, #{clyn,jdbcType=VARCHAR}, #{collExp,jdbcType=VARCHAR}, 
+      #{collEnd,jdbcType=VARCHAR}, #{compDuty,jdbcType=VARCHAR}, #{compName,jdbcType=VARCHAR}, 
+      #{compName2,jdbcType=VARCHAR}, #{conBegdt,jdbcType=VARCHAR}, #{conEnddt,jdbcType=VARCHAR}, 
+      #{crappldate,jdbcType=VARCHAR}, #{credRst,jdbcType=VARCHAR}, #{credLimit,jdbcType=VARCHAR}, 
+      #{credExpd,jdbcType=VARCHAR}, #{crexpReq,jdbcType=VARCHAR}, #{crlmtReq,jdbcType=VARCHAR}, 
+      #{crsucsdate,jdbcType=VARCHAR}, #{crFlag,jdbcType=VARCHAR}, #{crExp,jdbcType=VARCHAR}, 
+      #{cusplit,jdbcType=VARCHAR}, #{custrNbr,jdbcType=VARCHAR}, #{custrRef,jdbcType=VARCHAR}, 
+      #{custrSeg,jdbcType=VARCHAR}, #{custSts,jdbcType=VARCHAR}, #{gender,jdbcType=VARCHAR}, 
+      #{hmtelArea,jdbcType=VARCHAR}, #{homePhone,jdbcType=VARCHAR}, #{idDte,jdbcType=VARCHAR}, 
+      #{idIssdt,jdbcType=VARCHAR}, #{langCode,jdbcType=VARCHAR}, #{mailCode,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.sl.domain.TDmCust">
+    insert into t_dm_cust
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="balBmp != null">
+        bal_bmp,
+      </if>
+      <if test="balCmpfee != null">
+        bal_cmpfee,
+      </if>
+      <if test="abSource != null">
+        ab_source,
+      </if>
+      <if test="bank != null">
+        bank,
+      </if>
+      <if test="blockCode != null">
+        block_code,
+      </if>
+      <if test="blockDay != null">
+        block_day,
+      </if>
+      <if test="bmwYn != null">
+        bmw_yn,
+      </if>
+      <if test="busiLevel != null">
+        busi_level,
+      </if>
+      <if test="busiPhone != null">
+        busi_phone,
+      </if>
+      <if test="busiServ != null">
+        busi_serv,
+      </if>
+      <if test="caPcnt != null">
+        ca_pcnt,
+      </if>
+      <if test="classCode != null">
+        class_code,
+      </if>
+      <if test="classNbr != null">
+        class_nbr,
+      </if>
+      <if test="clyn != null">
+        clyn,
+      </if>
+      <if test="collExp != null">
+        coll_exp,
+      </if>
+      <if test="collEnd != null">
+        coll_end,
+      </if>
+      <if test="compDuty != null">
+        comp_duty,
+      </if>
+      <if test="compName != null">
+        comp_name,
+      </if>
+      <if test="compName2 != null">
+        comp_name2,
+      </if>
+      <if test="conBegdt != null">
+        con_begdt,
+      </if>
+      <if test="conEnddt != null">
+        con_enddt,
+      </if>
+      <if test="crappldate != null">
+        crappldate,
+      </if>
+      <if test="credRst != null">
+        cred_rst,
+      </if>
+      <if test="credLimit != null">
+        cred_limit,
+      </if>
+      <if test="credExpd != null">
+        cred_expd,
+      </if>
+      <if test="crexpReq != null">
+        crexp_req,
+      </if>
+      <if test="crlmtReq != null">
+        crlmt_req,
+      </if>
+      <if test="crsucsdate != null">
+        crsucsdate,
+      </if>
+      <if test="crFlag != null">
+        cr_flag,
+      </if>
+      <if test="crExp != null">
+        cr_exp,
+      </if>
+      <if test="cusplit != null">
+        cusplit,
+      </if>
+      <if test="custrNbr != null">
+        custr_nbr,
+      </if>
+      <if test="custrRef != null">
+        custr_ref,
+      </if>
+      <if test="custrSeg != null">
+        custr_seg,
+      </if>
+      <if test="custSts != null">
+        cust_sts,
+      </if>
+      <if test="gender != null">
+        gender,
+      </if>
+      <if test="hmtelArea != null">
+        hmtel_area,
+      </if>
+      <if test="homePhone != null">
+        home_phone,
+      </if>
+      <if test="idDte != null">
+        id_dte,
+      </if>
+      <if test="idIssdt != null">
+        id_issdt,
+      </if>
+      <if test="langCode != null">
+        lang_code,
+      </if>
+      <if test="mailCode != null">
+        mail_code,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="balBmp != null">
+        #{balBmp,jdbcType=VARCHAR},
+      </if>
+      <if test="balCmpfee != null">
+        #{balCmpfee,jdbcType=VARCHAR},
+      </if>
+      <if test="abSource != null">
+        #{abSource,jdbcType=VARCHAR},
+      </if>
+      <if test="bank != null">
+        #{bank,jdbcType=VARCHAR},
+      </if>
+      <if test="blockCode != null">
+        #{blockCode,jdbcType=VARCHAR},
+      </if>
+      <if test="blockDay != null">
+        #{blockDay,jdbcType=VARCHAR},
+      </if>
+      <if test="bmwYn != null">
+        #{bmwYn,jdbcType=VARCHAR},
+      </if>
+      <if test="busiLevel != null">
+        #{busiLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="busiPhone != null">
+        #{busiPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="busiServ != null">
+        #{busiServ,jdbcType=VARCHAR},
+      </if>
+      <if test="caPcnt != null">
+        #{caPcnt,jdbcType=VARCHAR},
+      </if>
+      <if test="classCode != null">
+        #{classCode,jdbcType=VARCHAR},
+      </if>
+      <if test="classNbr != null">
+        #{classNbr,jdbcType=VARCHAR},
+      </if>
+      <if test="clyn != null">
+        #{clyn,jdbcType=VARCHAR},
+      </if>
+      <if test="collExp != null">
+        #{collExp,jdbcType=VARCHAR},
+      </if>
+      <if test="collEnd != null">
+        #{collEnd,jdbcType=VARCHAR},
+      </if>
+      <if test="compDuty != null">
+        #{compDuty,jdbcType=VARCHAR},
+      </if>
+      <if test="compName != null">
+        #{compName,jdbcType=VARCHAR},
+      </if>
+      <if test="compName2 != null">
+        #{compName2,jdbcType=VARCHAR},
+      </if>
+      <if test="conBegdt != null">
+        #{conBegdt,jdbcType=VARCHAR},
+      </if>
+      <if test="conEnddt != null">
+        #{conEnddt,jdbcType=VARCHAR},
+      </if>
+      <if test="crappldate != null">
+        #{crappldate,jdbcType=VARCHAR},
+      </if>
+      <if test="credRst != null">
+        #{credRst,jdbcType=VARCHAR},
+      </if>
+      <if test="credLimit != null">
+        #{credLimit,jdbcType=VARCHAR},
+      </if>
+      <if test="credExpd != null">
+        #{credExpd,jdbcType=VARCHAR},
+      </if>
+      <if test="crexpReq != null">
+        #{crexpReq,jdbcType=VARCHAR},
+      </if>
+      <if test="crlmtReq != null">
+        #{crlmtReq,jdbcType=VARCHAR},
+      </if>
+      <if test="crsucsdate != null">
+        #{crsucsdate,jdbcType=VARCHAR},
+      </if>
+      <if test="crFlag != null">
+        #{crFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="crExp != null">
+        #{crExp,jdbcType=VARCHAR},
+      </if>
+      <if test="cusplit != null">
+        #{cusplit,jdbcType=VARCHAR},
+      </if>
+      <if test="custrNbr != null">
+        #{custrNbr,jdbcType=VARCHAR},
+      </if>
+      <if test="custrRef != null">
+        #{custrRef,jdbcType=VARCHAR},
+      </if>
+      <if test="custrSeg != null">
+        #{custrSeg,jdbcType=VARCHAR},
+      </if>
+      <if test="custSts != null">
+        #{custSts,jdbcType=VARCHAR},
+      </if>
+      <if test="gender != null">
+        #{gender,jdbcType=VARCHAR},
+      </if>
+      <if test="hmtelArea != null">
+        #{hmtelArea,jdbcType=VARCHAR},
+      </if>
+      <if test="homePhone != null">
+        #{homePhone,jdbcType=VARCHAR},
+      </if>
+      <if test="idDte != null">
+        #{idDte,jdbcType=VARCHAR},
+      </if>
+      <if test="idIssdt != null">
+        #{idIssdt,jdbcType=VARCHAR},
+      </if>
+      <if test="langCode != null">
+        #{langCode,jdbcType=VARCHAR},
+      </if>
+      <if test="mailCode != null">
+        #{mailCode,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.sl.domain.TDmCust">
+    update t_dm_cust
+    <set>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="balBmp != null">
+        bal_bmp = #{balBmp,jdbcType=VARCHAR},
+      </if>
+      <if test="balCmpfee != null">
+        bal_cmpfee = #{balCmpfee,jdbcType=VARCHAR},
+      </if>
+      <if test="abSource != null">
+        ab_source = #{abSource,jdbcType=VARCHAR},
+      </if>
+      <if test="bank != null">
+        bank = #{bank,jdbcType=VARCHAR},
+      </if>
+      <if test="blockCode != null">
+        block_code = #{blockCode,jdbcType=VARCHAR},
+      </if>
+      <if test="blockDay != null">
+        block_day = #{blockDay,jdbcType=VARCHAR},
+      </if>
+      <if test="bmwYn != null">
+        bmw_yn = #{bmwYn,jdbcType=VARCHAR},
+      </if>
+      <if test="busiLevel != null">
+        busi_level = #{busiLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="busiPhone != null">
+        busi_phone = #{busiPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="busiServ != null">
+        busi_serv = #{busiServ,jdbcType=VARCHAR},
+      </if>
+      <if test="caPcnt != null">
+        ca_pcnt = #{caPcnt,jdbcType=VARCHAR},
+      </if>
+      <if test="classCode != null">
+        class_code = #{classCode,jdbcType=VARCHAR},
+      </if>
+      <if test="classNbr != null">
+        class_nbr = #{classNbr,jdbcType=VARCHAR},
+      </if>
+      <if test="clyn != null">
+        clyn = #{clyn,jdbcType=VARCHAR},
+      </if>
+      <if test="collExp != null">
+        coll_exp = #{collExp,jdbcType=VARCHAR},
+      </if>
+      <if test="collEnd != null">
+        coll_end = #{collEnd,jdbcType=VARCHAR},
+      </if>
+      <if test="compDuty != null">
+        comp_duty = #{compDuty,jdbcType=VARCHAR},
+      </if>
+      <if test="compName != null">
+        comp_name = #{compName,jdbcType=VARCHAR},
+      </if>
+      <if test="compName2 != null">
+        comp_name2 = #{compName2,jdbcType=VARCHAR},
+      </if>
+      <if test="conBegdt != null">
+        con_begdt = #{conBegdt,jdbcType=VARCHAR},
+      </if>
+      <if test="conEnddt != null">
+        con_enddt = #{conEnddt,jdbcType=VARCHAR},
+      </if>
+      <if test="crappldate != null">
+        crappldate = #{crappldate,jdbcType=VARCHAR},
+      </if>
+      <if test="credRst != null">
+        cred_rst = #{credRst,jdbcType=VARCHAR},
+      </if>
+      <if test="credLimit != null">
+        cred_limit = #{credLimit,jdbcType=VARCHAR},
+      </if>
+      <if test="credExpd != null">
+        cred_expd = #{credExpd,jdbcType=VARCHAR},
+      </if>
+      <if test="crexpReq != null">
+        crexp_req = #{crexpReq,jdbcType=VARCHAR},
+      </if>
+      <if test="crlmtReq != null">
+        crlmt_req = #{crlmtReq,jdbcType=VARCHAR},
+      </if>
+      <if test="crsucsdate != null">
+        crsucsdate = #{crsucsdate,jdbcType=VARCHAR},
+      </if>
+      <if test="crFlag != null">
+        cr_flag = #{crFlag,jdbcType=VARCHAR},
+      </if>
+      <if test="crExp != null">
+        cr_exp = #{crExp,jdbcType=VARCHAR},
+      </if>
+      <if test="cusplit != null">
+        cusplit = #{cusplit,jdbcType=VARCHAR},
+      </if>
+      <if test="custrNbr != null">
+        custr_nbr = #{custrNbr,jdbcType=VARCHAR},
+      </if>
+      <if test="custrRef != null">
+        custr_ref = #{custrRef,jdbcType=VARCHAR},
+      </if>
+      <if test="custrSeg != null">
+        custr_seg = #{custrSeg,jdbcType=VARCHAR},
+      </if>
+      <if test="custSts != null">
+        cust_sts = #{custSts,jdbcType=VARCHAR},
+      </if>
+      <if test="gender != null">
+        gender = #{gender,jdbcType=VARCHAR},
+      </if>
+      <if test="hmtelArea != null">
+        hmtel_area = #{hmtelArea,jdbcType=VARCHAR},
+      </if>
+      <if test="homePhone != null">
+        home_phone = #{homePhone,jdbcType=VARCHAR},
+      </if>
+      <if test="idDte != null">
+        id_dte = #{idDte,jdbcType=VARCHAR},
+      </if>
+      <if test="idIssdt != null">
+        id_issdt = #{idIssdt,jdbcType=VARCHAR},
+      </if>
+      <if test="langCode != null">
+        lang_code = #{langCode,jdbcType=VARCHAR},
+      </if>
+      <if test="mailCode != null">
+        mail_code = #{mailCode,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.sl.domain.TDmCust">
+    update t_dm_cust
+    set create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      bal_bmp = #{balBmp,jdbcType=VARCHAR},
+      bal_cmpfee = #{balCmpfee,jdbcType=VARCHAR},
+      ab_source = #{abSource,jdbcType=VARCHAR},
+      bank = #{bank,jdbcType=VARCHAR},
+      block_code = #{blockCode,jdbcType=VARCHAR},
+      block_day = #{blockDay,jdbcType=VARCHAR},
+      bmw_yn = #{bmwYn,jdbcType=VARCHAR},
+      busi_level = #{busiLevel,jdbcType=VARCHAR},
+      busi_phone = #{busiPhone,jdbcType=VARCHAR},
+      busi_serv = #{busiServ,jdbcType=VARCHAR},
+      ca_pcnt = #{caPcnt,jdbcType=VARCHAR},
+      class_code = #{classCode,jdbcType=VARCHAR},
+      class_nbr = #{classNbr,jdbcType=VARCHAR},
+      clyn = #{clyn,jdbcType=VARCHAR},
+      coll_exp = #{collExp,jdbcType=VARCHAR},
+      coll_end = #{collEnd,jdbcType=VARCHAR},
+      comp_duty = #{compDuty,jdbcType=VARCHAR},
+      comp_name = #{compName,jdbcType=VARCHAR},
+      comp_name2 = #{compName2,jdbcType=VARCHAR},
+      con_begdt = #{conBegdt,jdbcType=VARCHAR},
+      con_enddt = #{conEnddt,jdbcType=VARCHAR},
+      crappldate = #{crappldate,jdbcType=VARCHAR},
+      cred_rst = #{credRst,jdbcType=VARCHAR},
+      cred_limit = #{credLimit,jdbcType=VARCHAR},
+      cred_expd = #{credExpd,jdbcType=VARCHAR},
+      crexp_req = #{crexpReq,jdbcType=VARCHAR},
+      crlmt_req = #{crlmtReq,jdbcType=VARCHAR},
+      crsucsdate = #{crsucsdate,jdbcType=VARCHAR},
+      cr_flag = #{crFlag,jdbcType=VARCHAR},
+      cr_exp = #{crExp,jdbcType=VARCHAR},
+      cusplit = #{cusplit,jdbcType=VARCHAR},
+      custr_nbr = #{custrNbr,jdbcType=VARCHAR},
+      custr_ref = #{custrRef,jdbcType=VARCHAR},
+      custr_seg = #{custrSeg,jdbcType=VARCHAR},
+      cust_sts = #{custSts,jdbcType=VARCHAR},
+      gender = #{gender,jdbcType=VARCHAR},
+      hmtel_area = #{hmtelArea,jdbcType=VARCHAR},
+      home_phone = #{homePhone,jdbcType=VARCHAR},
+      id_dte = #{idDte,jdbcType=VARCHAR},
+      id_issdt = #{idIssdt,jdbcType=VARCHAR},
+      lang_code = #{langCode,jdbcType=VARCHAR},
+      mail_code = #{mailCode,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

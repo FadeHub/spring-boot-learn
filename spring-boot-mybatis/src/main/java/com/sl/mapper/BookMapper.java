@@ -2,6 +2,7 @@ package com.sl.mapper;
 
 
 import com.sl.entity.User;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -17,4 +18,6 @@ public interface BookMapper {
     List<User> getUser();
 
     int insert(User user);
+
+    void updateBatch(List<User> userList);
 }
