@@ -30,7 +30,7 @@
         <dependency>
             <groupId>com.thoughtworks.xstream</groupId>
             <artifactId>xstream</artifactId>
-            <version>1.4.11.1</version>
+            <version>1.4.19</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-lang3 -->
         <dependency>
