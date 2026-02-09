@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+<!--    <properties resource="/generator.properties"/>-->
+    <!--    连接数据库jar包的路径-->
+    <classPathEntry location="D:\repository\mysql\mysql-connector-java\8.0.13\mysql-connector-java-8.0.13.jar"/>
+    <context id="DB2Tables"  targetRuntime="MyBatis3">
+        <commentGenerator>
+            <property name="suppressDate" value="true"/>
+            <!-- 是否去除自动生成的注释 true：是 ： false:否 -->
+            <property name="suppressAllComments" value="true"/>
+        </commentGenerator>
+
+        <!--数据库连接参数 -->
+        <jdbcConnection
+                driverClass="com.mysql.jdbc.Driver"
+                connectionURL="jdbc:mysql://localhost/chapter01?useUnicode=true&amp;characterEncoding=UTF-8&amp;serverTimezone=UTC"
+                userId="root"
+                password="root">
+        </jdbcConnection>
+
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+
+        <!-- 实体类的包名和存放路径 -->
+        <javaModelGenerator targetPackage="com.sl.domain" targetProject="src/main/java">
+            <property name="enableSubPackages" value="true"/>
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+
+        <!-- 生成映射文件*.xml的位置-->
+        <sqlMapGenerator targetPackage="mapper" targetProject="src/main/resources">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+
+        <!-- 生成DAO的包名和位置 -->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.sl.mapper" targetProject="src/main/java">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+
+        <!-- tableName：数据库中的表名或视图名；domainObjectName：生成的实体类的类名-->
+        <table tableName="t_dm_cust" domainObjectName="TDmCust"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               selectByExampleQueryId="false"/>
+        <!--
+                <table tableName="xxx" domainObjectName="xxx"
+                       enableCountByExample="false"
+                       enableUpdateByExample="false"
+                       enableDeleteByExample="false"
+                       enableSelectByExample="false"
+                       selectByExampleQueryId="false"/>
+                ...
+                <table tableName="xxx" domainObjectName="xxx"
+                       enableCountByExample="false"
+                       enableUpdateByExample="false"
+                       enableDeleteByExample="false"
+                       enableSelectByExample="false"
+                       selectByExampleQueryId="false"/>
+        -->
+    </context>
+</generatorConfiguration>
